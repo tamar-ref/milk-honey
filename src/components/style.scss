@@ -3,8 +3,8 @@ $medium-font: 20px;
 $small-font: 15px;
 
 * {
+    font-family: 'Arial Narrow', Arial, sans-serif;
     font-family: Impact, 'Segoe UI', 'Trebuchet MS';
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
     color: black;
 }
@@ -54,6 +54,16 @@ header {
         font-weight: bold;
         padding: 0.6rem 1.2rem;
         border-radius: 5px;
+    }
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    img {
+        width: 20vw;
     }
 }
 
@@ -149,9 +159,32 @@ header {
         gap: 10px;
 
         button {
-            background-color: white;
+            background: none;
             border: none;
             cursor: pointer;
+        }
+    }
+
+    .item {
+        display: flex;
+        flex-direction: row;
+
+        img {
+            object-fit: contain;
+            margin-right: 2vw;
+        }
+
+        div {
+            flex: 1; 
+        }
+
+        button {
+            background: none;
+        }
+
+        #trash {
+            margin: 5px;
+            align-self: flex-end;
         }
     }
 
@@ -183,15 +216,10 @@ header {
 
     .item {
         width: 40vw;
-        display: flex;
-        flex-direction: row;
         margin: 30px;
 
         img {
             width: 100px;
-            height: auto;
-            max-height: 230px;
-            margin-right: 2vw;
         }
     }
 
@@ -202,6 +230,7 @@ header {
 
         button {
             background-color: orange;
+            font-size: $medium-font
         }
     }
 }
@@ -211,7 +240,7 @@ header {
     border-radius: 10px;
     width: 300px;
     position: fixed;
-    top: 20px;
+    top: 100px;
     right: 20px;
     z-index: 100;
     background-color: white;
@@ -220,14 +249,22 @@ header {
     overflow-y: auto;
     display: flex;
 
+    #empty {
+        margin: 10px;
+    }
+
+    .item {
+        padding: 15px;
+    }
+
     #x {
         align-self: flex-end;
         background: none;
+        font-size: $large-font;
     }
 
     img {
         width: 50px;
-        height: auto;
     }
 
     .total {
@@ -237,6 +274,10 @@ header {
         a {
             background-color: black;
             color: orange;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 10px;
         }
     }
 }

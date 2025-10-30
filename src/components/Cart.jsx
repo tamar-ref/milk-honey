@@ -1,7 +1,7 @@
 import getCartSummary from './getCartSummary';
 import { useEffect } from 'react';
 
-export default function Cart({ cartItems, addToCart, removeFromCart, total, setShowPreview }) {
+export default function Cart({ cartItems, addToCart, removeFromCart, total, setShowPreview, deleteFromCart }) {
     const summary = getCartSummary(cartItems);
 
     useEffect(() => {
@@ -31,6 +31,7 @@ export default function Cart({ cartItems, addToCart, removeFromCart, total, setS
                                         <button onClick={() => addToCart(item.id)}>+</button>
                                     </div>
                                 </div>
+                                <button id='trash' onClick={() => deleteFromCart(item.id)}>🗑️</button>
                             </div>
                             <hr />
                         </div>

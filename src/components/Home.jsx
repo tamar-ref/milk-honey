@@ -1,7 +1,7 @@
 export default function Home() {
     return (
-        <>
-            Home
-        </>
+        <div className="home">
+            <img src="/logo2.jpg" alt="logo"></img>
+        </div>
     );
 }
