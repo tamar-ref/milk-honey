@@ -1,0 +1,242 @@
+$large-font: 25px;
+$medium-font: 20px;
+$small-font: 15px;
+
+* {
+    font-family: Impact, 'Segoe UI', 'Trebuchet MS';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-size: $small-font;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: $medium-font;
+
+    img {
+        width: 80px;
+        height: auto;
+    }
+
+    a {
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: gray;
+        }
+
+        &.active {
+            color: orange;
+        }
+
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        list-style: none;
+
+        li {
+            list-style: none;
+        }
+    }
+
+    .cart-link {
+        font-weight: bold;
+        padding: 0.6rem 1.2rem;
+        border-radius: 5px;
+    }
+}
+
+.title {
+    font-size: $medium-font;
+}
+
+.details {
+    color: gray;
+}
+
+.products {
+    margin: 100px;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 70px;
+    justify-content: center;
+
+    .productCard {
+        text-align: center;
+        width: 200px;
+        padding: 0;
+
+        #img {
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 150px;
+                height: auto;
+                max-height: 230px;
+            }
+        }
+
+        .title {
+            margin: 10px 0;
+            height: 48px;
+            overflow: hidden;
+        }
+
+        button {
+            background-color: orange;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    margin: 100px;
+    gap: 50px;
+    align-items: center;
+
+    .title {
+        font-size: $large-font;
+    }
+
+    p {
+        margin: 40px;
+    }
+
+    img {
+        width: 25vw;
+        height: auto;
+    }
+
+    button {
+        background-color: orange;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        margin-left: 40px;
+    }
+}
+
+#back {
+    font-size: $medium-font;
+    margin: 15px 35px;
+    display: inline-block;
+}
+
+@mixin cart {
+    flex-direction: column;
+
+    #amount {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        button {
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .total {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    button {
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+    }
+}
+
+.cart {
+    @include cart;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .colorfull {
+        color: orange;
+    }
+
+    .item {
+        width: 40vw;
+        display: flex;
+        flex-direction: row;
+        margin: 30px;
+
+        img {
+            width: 100px;
+            height: auto;
+            max-height: 230px;
+            margin-right: 2vw;
+        }
+    }
+
+    .total {
+        align-items: center;
+        width: 40vw;
+        font-size: $large-font;
+
+        button {
+            background-color: orange;
+        }
+    }
+}
+
+.cartPre {
+    @include cart;
+    border-radius: 10px;
+    width: 300px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+
+    #x {
+        align-self: flex-end;
+        background: none;
+    }
+
+    img {
+        width: 50px;
+        height: auto;
+    }
+
+    .total {
+        padding: 10px;
+        background-color: orange;
+
+        a {
+            background-color: black;
+            color: orange;
+        }
+    }
+}
