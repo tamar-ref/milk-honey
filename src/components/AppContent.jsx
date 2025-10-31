@@ -85,9 +85,26 @@ function App() {
         <>
             <Header categories={categories} cartItems={cartItems} />
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/category/:categoryName" element={<Products products={products} addToCart={addToCart} />} />
-                <Route path="/category/:categoryName/product/:productId" element={<Product products={products} addToCart={addToCart} />} />
+                <Route
+                    path="/"
+                    element={<Home
+                        products={products}
+                        addToCart={addToCart}
+                    />}
+                />
+                <Route
+                    path="/category/:categoryName"
+                    element={<Products
+                        products={products}
+                        addToCart={addToCart}
+                    />}
+                />
+                <Route
+                    path="/category/:categoryName/product/:productId"
+                    element={<Product
+                        products={products}
+                        addToCart={addToCart}
+                    />} />
                 <Route
                     path="/cart"
                     element={

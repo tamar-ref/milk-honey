@@ -57,28 +57,11 @@ header {
     }
 }
 
-.home {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-
-    img {
-        width: 20vw;
-    }
-}
-
-.title {
-    font-size: $medium-font;
-}
-
-.details {
-    color: gray;
-}
-
-.products {
-    margin: 100px;
+@mixin productsWrapping {
+    margin: 60px;
     flex-wrap: wrap;
     display: flex;
+    flex-direction: row;
     gap: 70px;
     justify-content: center;
 
@@ -113,6 +96,35 @@ header {
             cursor: pointer;
         }
     }
+}
+
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 20vw;
+        margin: 30px;
+    }
+
+    .latest {
+        @include productsWrapping;
+    }
+
+}
+
+.title {
+    font-size: $medium-font;
+}
+
+.details {
+    color: gray;
+}
+
+.products {
+    @include productsWrapping;
 }
 
 .product {
@@ -175,7 +187,7 @@ header {
         }
 
         div {
-            flex: 1; 
+            flex: 1;
         }
 
         button {
