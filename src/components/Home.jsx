@@ -5,7 +5,7 @@ export default function Home({ products, addToCart }) {
 
     return (
         <div className="home">
-            <img src="/logo2.jpg" alt="logo"></img>
+            <img src="/logo2.png" alt="logo"></img>
             <h3>LATEST PRODUCTS</h3>
             <div className="latest">
                 {

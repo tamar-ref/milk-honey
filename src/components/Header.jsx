@@ -6,7 +6,10 @@ export default function Header({ categories, cartItems }) {
     return (
         <>
             <header>
-                <img src="/logo.png" alt="logo" />
+                <div>
+                    <img src="/logo.png" alt="logo" />
+                    <span>SHOP</span>
+                </div>
                 <nav>
                     <NavLink to="/">Home</NavLink>
                     {categories.map(category => (
