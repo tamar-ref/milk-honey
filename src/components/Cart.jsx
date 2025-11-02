@@ -15,7 +15,7 @@ export default function Cart({ cartItems, addToCart, removeFromCart, total, setS
                 <span className='colorfull'> Summery</span>
             </h1>
             {cartItems.length === 0 ? (
-                <p>Your cart is empty.</p>
+                <p>Your cart is empty</p>
             ) : (
                 <>
                     {summary.map(item => (
@@ -24,7 +24,7 @@ export default function Cart({ cartItems, addToCart, removeFromCart, total, setS
                                 <img src={item.image} alt={item.title} />
                                 <div>
                                     <p>{item.title}</p>
-                                    <p>{item.price}$</p>
+                                    <p id='price'>{item.price}$</p>
                                     <div id='amount'>
                                         <button onClick={() => removeFromCart(item.id)}>-</button>
                                         <p>{item.quantity}</p>
@@ -41,7 +41,6 @@ export default function Cart({ cartItems, addToCart, removeFromCart, total, setS
                         <button>COMPLETE ORDER</button>
                     </div>
                 </>
-
             )}
         </div>
     );

@@ -8,7 +8,7 @@ export default function CartPreview({ cartItems, setShowPreview, addToCart, remo
         <div className='cartPre'>
             <button id="x" onClick={() => { setShowPreview(false) }}>X</button>
             {cartItems.length === 0 ? (
-                <p id="empty">Your cart is empty.</p>
+                <p id="empty">Your cart is empty</p>
             ) : (
                 <>
                     {summary.map(item => (
@@ -27,14 +27,14 @@ export default function CartPreview({ cartItems, setShowPreview, addToCart, remo
                             </div>
                             <hr />
                         </div>
-                    ))
-                    }
+                    ))}
+                    <div className="total">
+                        <p>TOTAL: {total.toFixed(2)}$</p>
+                        <Link to='/cart'>CHECKOUT</Link>
+                    </div>
                 </>
             )}
-            <div className="total">
-                <p>TOTAL: {total.toFixed(2)}$</p>
-                <Link to='/cart'>CHECKOUT</Link>
-            </div>
+
         </div>
     )
 }

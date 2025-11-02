@@ -13,6 +13,12 @@ body {
     font-size: $small-font;
 }
 
+@mixin button {
+    background-color: orange;
+    border: none;
+    cursor: pointer;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -100,10 +106,8 @@ header {
         }
 
         button {
-            background-color: orange;
-            border: none;
+            @include button;
             padding: 5px;
-            cursor: pointer;
         }
     }
 }
@@ -158,10 +162,8 @@ header {
     }
 
     button {
-        background-color: orange;
-        border: none;
+        @include button;
         padding: 10px;
-        cursor: pointer;
         margin-left: 40px;
     }
 }
@@ -242,6 +244,10 @@ header {
 
         img {
             width: 100px;
+        }
+
+        #price {
+            color: gray;
         }
     }
 
