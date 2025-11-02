@@ -15,7 +15,7 @@ export default function Cart({ cartItems, addToCart, removeFromCart, total, setS
                 <span className='colorfull'> Summery</span>
             </h1>
             {cartItems.length === 0 ? (
-                <p>Your cart is empty</p>
+                <h2>Your cart is empty</h2>
             ) : (
                 <>
                     {summary.map(item => (

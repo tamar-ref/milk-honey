@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Like from "./Like";
 
-export default function ProductCard({ product, addToCart, categoryName }) {
+export default function ProductCard({ product, addToCart, addToWishList, removeFromWishList, wishList }) {
+
+    const { categoryName } = useParams();
 
     return (
         <Link to={`/category/${categoryName}/product/${product.id}`}
@@ -20,6 +25,12 @@ export default function ProductCard({ product, addToCart, categoryName }) {
                 }}>
                     ADD TO CART
                 </button>
+                <Like
+                    wishList={wishList}
+                    product={product}
+                    removeFromWishList={removeFromWishList}
+                    addToWishList={addToWishList}
+                />
             </div>
         </Link>
     )

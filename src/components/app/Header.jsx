@@ -20,7 +20,10 @@ export default function Header({ categories, cartItems }) {
                         </li>
                     ))}
                 </nav>
-                <NavLink to="/cart">Cart ({cartItems.length})</NavLink>
+                <div className='rightLinks'>
+                    <NavLink to="/wish-list">Wish List</NavLink>
+                    <NavLink to="/cart">Cart ({cartItems.length})</NavLink>
+                </div>
             </header>
         </>
     );

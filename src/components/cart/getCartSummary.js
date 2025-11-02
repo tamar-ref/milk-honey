@@ -5,7 +5,8 @@ export default function getCartSummary(cartItems) {
     cartItems.forEach(item => {
         if (summary[item.id]) {
             summary[item.id].quantity += 1;
-        } else {
+        }
+        else {
             summary[item.id] = { ...item, quantity: 1 };
         }
     });

@@ -66,10 +66,8 @@ header {
         }
     }
 
-    .cart-link {
-        font-weight: bold;
-        padding: 0.6rem 1.2rem;
-        border-radius: 5px;
+    .rightLinks {
+        gap: 1.5rem;
     }
 }
 
@@ -307,5 +305,17 @@ header {
             align-items: center;
             padding: 5px 10px;
         }
+    }
+}
+
+#heart {
+    background-color: white;
+    font-size: $large-font;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        transform: scale(1.3);
     }
 }

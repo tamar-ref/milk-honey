@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import Like from "./Like";
 
-export default function Product({ products, addToCart }) {
+export default function Product({ products, addToCart, wishList, removeFromWishList, addToWishList }) {
     const { productId } = useParams();
     const id = Number(productId);
     const product = products.find(product => product.id === id);
@@ -22,6 +22,12 @@ export default function Product({ products, addToCart }) {
                     <p className="details">{product.description}</p>
                     <p>PRICE: {product.price}$</p>
                     <button onClick={() => addToCart(product.id)}>ADD TO CART</button>
+                    <Like
+                        wishList={wishList}
+                        product={product}
+                        removeFromWishList={removeFromWishList}
+                        addToWishList={addToWishList}
+                    />
                 </div>
             </div>
         </>

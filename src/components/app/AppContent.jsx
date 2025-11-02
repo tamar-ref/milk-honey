@@ -1,12 +1,13 @@
-import './style.scss'
+import '../style.scss'
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from "./Header";
 import Home from './Home';
-import Products from './Products';
-import Product from './Product';
-import Cart from './Cart';
-import CartPreview from './CartPreview';
+import Products from '../product/Products';
+import Product from '../product/Product';
+import WishList from '../product/WishList';
+import Cart from '../cart/Cart';
+import CartPreview from '../cart/CartPreview';
 
 function App() {
 
@@ -15,6 +16,10 @@ function App() {
     const [cartItems, setCartItems] = useState(() => {
         const cart = localStorage.getItem("cart");
         return cart ? JSON.parse(cart) : [];
+    });
+    const [wishList, setWishList] = useState(() => {
+        const wishList = localStorage.getItem("wishList");
+        return wishList ? JSON.parse(wishList) : [];
     });
     const [total, setTotal] = useState(() => {
         const total = localStorage.getItem("total");
@@ -38,8 +43,8 @@ function App() {
     }, [cartItems]);
 
     useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-    }, [cartItems]);
+        localStorage.setItem("wishList", JSON.stringify(wishList));
+    }, [wishList]);
 
     useEffect(() => {
         localStorage.setItem("total", JSON.stringify(total));
@@ -80,6 +85,19 @@ function App() {
         setTotal(prev => prev - totalRemoved);
     };
 
+    const addToWishList = (id) => {
+        const product = products.find(p => p.id === id);
+        if (!product) return;
+        setWishList(prev => {
+            if (prev.some(item => item.id === id))
+                return prev;
+            return [...prev, product];
+        });
+    };
+
+    const removeFromWishList = (id) => {
+        setWishList(prev => prev.filter(item => item.id !== id));
+    };
 
     return (
         <>
@@ -90,6 +108,9 @@ function App() {
                     element={<Home
                         products={products}
                         addToCart={addToCart}
+                        addToWishList={addToWishList}
+                        removeFromWishList={removeFromWishList}
+                        wishList={wishList}
                     />}
                 />
                 <Route
@@ -97,6 +118,9 @@ function App() {
                     element={<Products
                         products={products}
                         addToCart={addToCart}
+                        addToWishList={addToWishList}
+                        removeFromWishList={removeFromWishList}
+                        wishList={wishList}
                     />}
                 />
                 <Route
@@ -104,7 +128,21 @@ function App() {
                     element={<Product
                         products={products}
                         addToCart={addToCart}
-                    />} />
+                        wishList={wishList}
+                        removeFromWishList={removeFromWishList}
+                        addToWishList={addToWishList}
+                    />}
+                />
+                <Route
+                    path='/wish-list'
+                    element={<WishList
+                        wishList={wishList}
+                        products={products}
+                        addToCart={addToCart}
+                        addToWishList={addToWishList}
+                        removeFromWishList={removeFromWishList}
+                    />}
+                />
                 <Route
                     path="/cart"
                     element={
@@ -115,7 +153,8 @@ function App() {
                             total={total}
                             setShowPreview={setShowPreview}
                             deleteFromCart={deleteFromCart}
-                        />} />
+                        />}
+                />
             </Routes>
             {showPreview && <CartPreview
                 cartItems={cartItems}
